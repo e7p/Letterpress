@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
   <title>{{site_title}} - Tags</title>
-  {{common_head}}
+
+{{common_head}}
 </head>
 <body>
-	<header role="banner">
-	  <div class="container">
-	    <a href="/" class="logo"><img src="/img/logo@2x.png" alt="Logo" /></a>
-      {{common_header}}
-	  </div>
-	</header>
+  <header role="banner">
+    <div class="container">
+      <a href="/" class="logo"><img src="/img/logo@2x.png" alt="Logo" /></a>
+{{common_header}}
+    </div>
+  </header>
 
   <section role="main" class="container">
-  	<ul class="tags">
-	    {{#tags}}
-	    <li class="tag">
-		    <h2 class="tag-title"><a href="{{tag_url}}">{{tag_title}}</a></h2>
-		    <p class="meta tag-size">{{tag_size}}</p>
-	    </li>
-	    {{/tags}}
-    </ul>
+    <ul class="tags">
+{{#tags}}      <li class="tag">
+        <h2 class="tag-title"><a href="{{tag_url}}">{{tag_title}}</a></h2>
+        <p class="meta tag-size">{{tag_size}}</p>
+      </li>
+{{/tags}}    </ul>
   </section>
 
   <footer id="footer">

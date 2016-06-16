@@ -2,35 +2,34 @@
 <html lang="en">
 <head>
   <title>{{site_description}}</title>
-  {{common_head}}
+
+{{common_head}}
 </head>
 <body>
   <header role="banner">
     <div class="container">
       <a href="/" class="logo"><img src="/img/logo@2x.png" alt="Logo" /></a>
-      {{common_header}}
+{{common_header}}
     </div>
   </header>
 
   <section role="main" class="container">
-		{{#posts}}
-	  <article>
-	    <header>
-			  <p class="meta"><time datetime="{{date}}">{{pretty_date}}</time></p>
-	      <h2><a href="{{permalink}}">{{title}}</a></h2>
-	    </header>
-	    <section class="content">
-	      <p class="intro">{{excerpt}}</p>
-	    </section>
-	  </article>
-	  {{/posts}}
-  </section>
-  
-	<nav class="archive footer container">
-		<h1><a class="nav-prev" href="{{prev_archive_url}}">{{prev_archive_title}}</a></h1>
-		<h1><a class="nav-next" href="{{next_archive_url}}">{{next_archive_title}}</a></h1>
-	</nav>
-	
+{{#posts}}    <article>
+      <header>
+        <p class="meta"><time datetime="{{date}}">{{pretty_date}}</time></p>
+        <h2><a href="{{permalink}}">{{title}}</a></h2>
+      </header>
+      <section class="content">
+        <p class="intro">{{excerpt}}</p>
+      </section>
+    </article>
+{{/posts}}  </section>
+
+  <nav class="archive footer container">
+    <h1><a class="nav-prev" href="{{prev_archive_url}}">{{prev_archive_title}}</a></h1>
+    <h1><a class="nav-next" href="{{next_archive_url}}">{{next_archive_title}}</a></h1>
+  </nav>
+
   <footer id="footer">
     <section class="container">
       <p>Powered by <a href="https://github.com/an0/Letterpress">Letterpress</a>.</p>

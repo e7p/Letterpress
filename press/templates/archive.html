@@ -2,34 +2,31 @@
 <html lang="en">
 <head>
   <title>{{site_title}} - Archive</title>
-  {{common_head}}
+
+{{common_head}}
 </head>
 <body>
-	<header role="banner">
-	  <div class="container">
-	    <a href="/" class="logo"><img src="/img/logo@2x.png" alt="Logo" /></a>
-      {{common_header}}
-	  </div>
-	</header>
+  <header role="banner">
+    <div class="container">
+      <a href="/" class="logo"><img src="/img/logo@2x.png" alt="Logo" /></a>
+{{common_header}}
+    </div>
+  </header>
 
   <section role="main" class="container">
-    {{#monthly_archives}}
-    <section class="archive">
-    	<h1 class="archive-title"><a href="{{monthly_archive_url}}">{{monthly_archive_title}}</a></h1>
-			{{#posts}}
-		  <article>
-		    <header>
-			    <p class="meta"><time datetime="{{date}}">{{pretty_date}}</time></p>
-		      <h2><a href="{{permalink}}">{{title}}</a></h2>
-		    </header>
-				<section class="content">
-				  <p class="intro">{{excerpt}}</p>
-				</section>
-		  </article>
-		  {{/posts}}
-    </section>
-    {{/monthly_archives}}
-  </section>
+{{#monthly_archives}}    <section class="archive">
+      <h1 class="archive-title"><a href="{{monthly_archive_url}}">{{monthly_archive_title}}</a></h1>
+{{#posts}}      <article>
+        <header>
+          <p class="meta"><time datetime="{{date}}">{{pretty_date}}</time></p>
+          <h2><a href="{{permalink}}">{{title}}</a></h2>
+        </header>
+        <section class="content">
+          <p class="intro">{{excerpt}}</p>
+        </section>
+      </article>
+{{/posts}}    </section>
+{{/monthly_archives}}  </section>
 
   <footer id="footer">
     <section class="container">

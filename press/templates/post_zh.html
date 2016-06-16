@@ -2,7 +2,8 @@
 <html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
   <title>{{site_title}} - {{title}}</title>
-  {{common_head}}
+
+{{common_head}}
 </head>
 <body>
   <header role="banner" id="post-head">
@@ -12,19 +13,19 @@
   </header>
 
   <section role="main" class="container">
-	  <article>
-	    <header>
-		    <p class="meta" id="time"><time datetime="{{date}}">{{pretty_date_html}}</time></p>
-	      <h1>{{title}}</h1>
-	    </header>
-	    <section class="content">
-	      {{content}}
-	    </section>
-	    <footer role="contentinfo" class="post-footer">
- 		    <p class="meta" id="tags">{{tags}}</p>
+    <article>
+      <header>
+        <p class="meta" id="time"><time datetime="{{date}}">{{pretty_date_html}}</time></p>
+        <h1>{{title}}</h1>
+      </header>
+      <section class="content">
+        {{content}}
+      </section>
+      <footer role="contentinfo" class="post-footer">
+        <p class="meta" id="tags">{{tags}}</p>
         <wb:share-button addition="simple" type="button" ralateUid="1676354212" picture_search="false" title="{{title}}：{{excerpt}}"></wb:share-button>
-	    </footer>
-	  </article>  
+      </footer>
+    </article>
   </section>
     
   <footer id="footer">

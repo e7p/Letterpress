@@ -404,7 +404,7 @@ class TimelineArchive(object):
         header_template = template[:posts_match.start()]
         head = format(common_head, rss_rel='alternate', site_description=config['description'])
         header = format(header_template,
-                        site_description=config["description"], common_head=head)
+                        site_title=config["title"], common_head=head)
         footer_template = template[posts_match.end():]
         prev_archive_title = ''
         prev_archive_url = ''

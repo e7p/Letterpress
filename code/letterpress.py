@@ -763,11 +763,14 @@ def main():
         item_list = []
 
         sorted_posts = sorted(posts.values(), reverse=True)
+        url_comps = urllib.parse.urlparse(config["server_url"])
         for post in sorted_posts:
+            permalink = urllib.parse.urlunparse(url_comps[:2] + (urllib.parse.urlparse(post.permalink)[2],) + (None,) * 3)
             item_list.append(format(item_template, title=post.title, date=email.utils.format_datetime(
-                post.date), permalink=post.permalink, content=post.content))
+                post.date), permalink=permalink, content=post.content))
+        link = urllib.parse.urlunparse(url_comps[:2] + (urllib.parse.urlparse(config["base_url"])[2],) + (None,) * 3)
         feed = format(template[:items_match.start()], site_title=html.escape(config["title"]), site_description=html.escape(
-            config["description"]), site_link=config["base_url"]) + ''.join(item_list) + template[items_match.end():]
+            config["description"]), site_link=link) + ''.join(item_list) + template[items_match.end():]
 
         output_file_path = os.path.join(site_dir, 'feed.xml')
         with codecs.open(output_file_path, 'w', 'utf-8') as output_file:

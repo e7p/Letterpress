@@ -246,7 +246,7 @@ class Tag(object):
         self.path = ('tags/' + name + '/')
         url_comps = urllib.parse.urlparse(posts[0].permalink)
         self.permalink = urllib.parse.urlunparse(
-            url_comps[:2] + (self.path,) + (None,) * 3)
+            url_comps[:2] + ('/' + self.path,) + (None,) * 3)
 
     def build_index(self, templates_dir):
         with codecs.open(os.path.join(templates_dir, "tag_archive.html"), 'r', 'utf-8') as f:

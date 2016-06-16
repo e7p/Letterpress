@@ -305,7 +305,7 @@ class MonthlyArchive(object):
             next_archive_url = next_archive.permalink
         archive_title_html = strftimeML(self.month, getTimeFormatML("month", lang).replace("%Y", '<a href="' + os.path.dirname(self.permalink[:-1]) + '/">%Y</a>'), lang)
         head = format(common_head, rss_rel='alternate', site_description=config['description'])
-        header = format(header_template, site_title=config["title"], common_head=head, archive_title=self.month.strftime('%B, %Y'), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
+        header = format(header_template, site_title=config["title"], common_head=head, archive_title=strftimeML(self.month, "month", lang), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
                         next_archive_title=next_archive_title, next_archive_url=next_archive_url, archive_title_html=archive_title_html)
         post_template = posts_match.group(1)
         post_list = []

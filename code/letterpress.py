@@ -60,9 +60,6 @@ _template_re = re.compile(r'{{([^{}]+)}}')
 def format(template, **kwargs):
     # Add common replacements to all templates.
     # Parse the head template also, because it contains parameters
-    if 'rss_rel' not in kwargs:
-        kwargs['rss_rel'] = 'alternate'
-    kwargs['common_head'] = _template_re.sub(lambda m: kwargs[m.group(1)], common_head)
     kwargs['common_header'] = common_header
     return _template_re.sub(lambda m: kwargs[m.group(1)], template)
 
@@ -148,8 +145,9 @@ class Post(object):
         # Process <code lang="programming-lang"></code> blocks or spans.
         self.content = self._format_code_lang(self.content)
         pretty_date_html = strftimeML(self.date, getTimeFormatML("date", lang).replace("%B", '<a href="' + os.path.dirname(self.permalink) + '/">%B</a>').replace("%Y", '<a href="' + os.path.dirname(os.path.dirname(self.permalink)[:-1]) + '/">%Y</a>'), lang)
-        self.html = format(template, site_title=config["title"], title=self.title, date=self.date.strftime('%Y-%m-%d'), pretty_date_html=pretty_date_html,
-            tags=', '.join('<a href="/tags/{tag}">{tag}</a>'.format(tag=tag) for tag in self.tags), permalink=self.permalink, excerpt=self.excerpt, content=self.content, rss_rel='home')
+        head = format(common_head, rss_rel='home', site_description=config['description'])
+        self.html = format(template, site_title=config["title"], common_head=head, title=self.title, date=self.date.strftime('%Y-%m-%d'), pretty_date_html=pretty_date_html,
+            tags=', '.join('<a href="/tags/{tag}">{tag}</a>'.format(tag=tag) for tag in self.tags), permalink=self.permalink, excerpt=self.excerpt, content=self.content)
         # Load MathJax for post with math tag.
         if is_math:
             self.html = self.html.replace('</head>', '''
@@ -256,8 +254,9 @@ class Tag(object):
         posts_match = _posts_re.search(template)
         post_template = posts_match.group(1)
         header_template = template[:posts_match.start()]
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
         header = format(header_template, site_title=config[
-                        "title"], archive_title=self.name)
+                        "title"], common_head=head, archive_title=self.name)
         post_list = []
         for post in sorted(self.posts, reverse=True):
             if not post:
@@ -305,7 +304,8 @@ class MonthlyArchive(object):
             next_archive_title = '>'
             next_archive_url = next_archive.permalink
         archive_title_html = strftimeML(self.month, getTimeFormatML("month", lang).replace("%Y", '<a href="' + os.path.dirname(self.permalink[:-1]) + '/">%Y</a>'), lang)
-        header = format(header_template, site_title=config["title"], archive_title=self.month.strftime('%B, %Y'), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
+        header = format(header_template, site_title=config["title"], common_head=head, archive_title=self.month.strftime('%B, %Y'), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
                         next_archive_title=next_archive_title, next_archive_url=next_archive_url, archive_title_html=archive_title_html)
         post_template = posts_match.group(1)
         post_list = []
@@ -353,7 +353,8 @@ class YearlyArchive(object):
         if next_archive:
             next_archive_title = '>'
             next_archive_url = next_archive.permalink
-        header = format(header_template, site_title=config["title"], archive_title=self.year.strftime(
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
+        header = format(header_template, site_title=config["title"], common_head=head, archive_title=self.year.strftime(
             '%Y'), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url, next_archive_title=next_archive_title, next_archive_url=next_archive_url)
         monthly_archive_template = monthly_archives_match.group(1)
         posts_match = _posts_re.search(monthly_archive_template)
@@ -401,8 +402,9 @@ class TimelineArchive(object):
             template = f.read()
         posts_match = _posts_re.search(template)
         header_template = template[:posts_match.start()]
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
         header = format(header_template,
-                        site_description=config["description"])
+                        site_description=config["description"], common_head=head)
         footer_template = template[posts_match.end():]
         prev_archive_title = ''
         prev_archive_url = ''
@@ -595,7 +597,8 @@ def main():
             template = f.read()
         tags_match = _tags_re.search(template)
         header_template = template[:tags_match.start()]
-        header = format(header_template, site_title=config["title"])
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
+        header = format(header_template, site_title=config["title"], common_head=head)
         tags_template = tags_match.group(1)
         tag_list = []
         for tag in sorted(tags.values()):
@@ -719,7 +722,8 @@ def main():
             template = f.read()
         monthly_archives_match = _monthly_archives_re.search(template)
         header_template = template[:monthly_archives_match.start()]
-        header = format(header_template, site_title=config["title"])
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
+        header = format(header_template, site_title=config["title"], common_head=head)
         monthly_archive_template = monthly_archives_match.group(1)
         posts_match = _posts_re.search(monthly_archive_template)
         monthly_archive_header = monthly_archive_template[:posts_match.start()]
@@ -745,7 +749,8 @@ def main():
     def create_404_page():
         with codecs.open(os.path.join(templates_dir, "404.html"), 'r', 'utf-8') as f:
             template = f.read()
-        page = format(template, site_title=html.escape(config["title"]))
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
+        page = format(template, site_title=html.escape(config["title"]), common_head=head)
         output_file_path = os.path.join(site_dir, '404.html')
         with codecs.open(output_file_path, 'w', 'utf-8') as output_file:
             output_file.write(page)

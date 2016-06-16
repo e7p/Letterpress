@@ -18,7 +18,7 @@ I'm writing this post in [iA Writer](http://www.iawriter.com) on my iPad while c
 
 To make this whole writing and publishing experience possible, I built my own blogging system — [Letterpress](https://github.com/an0/Letterpress). 
 
-I've been using [WordPress](http://wordpress.org) since July, 2009. It is almost good enough. I encountered several downtimes when MySQL hung. I don't know a thing about database so I had to reboot the whole machine. I even wrote 1 or 2 small WordPress plugins for my own use, which further consolidated my aversion to PHP. RSS/Atom feed generating is meaningless to me since I'm not famous and no one subscribe to my blog except myself. Comments are also just ego feeders and I guess I got more VIAGRA spams than sensible comments. Most importantly, the writing experience is not good, neither in its web editor nor in its mobile apps.
+I've been using [WordPress](http://wordpress.org) since July, 2009. It is almost good enough. I encountered several downtimes when MySQL hung. I don't know a thing about database so I had to reboot the whole machine. I even wrote 1 or 2 small WordPress plugins for my own use, which further consolidated my aversion to PHP. RSS/Atom feed generating is meaningless to me since I'm not famous and no one subscribe to my blog except myself. Comments are also just ego feeders and I guess I got more VIAGRA spams than sensible comments. Most importantly, the writing experience is not good, neither in its web editor nor in its mobile apps.
 
 I just want a minimal blogging system with good writing experience. Only static text files, no dynamic HTML generated from database. No RSS/Atom. No comments. And no PHP.
 

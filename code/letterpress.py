@@ -68,6 +68,23 @@ def format(template, **kwargs):
 
 pygments_options = {'cssclass': 'code', 'classprefix': 'code-'}
 
+def getTimeFormatML(format, lang='en'):
+    if((format + '_' + lang) in config):
+        datestr = config[format + '_' + lang]
+    else:
+        if(format == 'date'):
+            datestr = '%B %d, %Y'
+        elif(format == 'month'):
+            datestr = '%B %Y'
+        else:
+            datestr = format
+    return datestr
+
+def strftimeML(date, format, lang='en'):
+    datestr = getTimeFormatML(format, lang)
+    if(("months_" + lang) in config):
+        datestr = datestr.replace("%B", config["months_" + lang].split(',')[date.month-1])
+    return date.strftime(datestr)
 
 @total_ordering
 class Post(object):
@@ -99,7 +116,7 @@ class Post(object):
         self.file_path = file_path
         self.title = html.escape(meta_data['title'])
         self.date = datetime.datetime.strptime(meta_data['date'], date_format)
-        self.pretty_date = self.date.strftime('%B %d, %Y')
+        self.pretty_date = strftimeML(self.date, "date", lang)
         self.excerpt = meta_data.get('excerpt')
         if not self.excerpt:
             if (len(rest_text) > 140):
@@ -130,8 +147,9 @@ class Post(object):
                                           'code-friendly': True, 'fenced-code-blocks': pygments_options, 'footnotes': True, 'math_delimiter': math_delimiter if is_math else None})
         # Process <code lang="programming-lang"></code> blocks or spans.
         self.content = self._format_code_lang(self.content)
-        self.html = format(template, site_title=config["title"], title=self.title, date=self.date.strftime('%Y-%m-%d'), monthly_archive_url=os.path.dirname(self.permalink) + '/', year=self.date.strftime('%Y'), month=self.date.strftime(
-            '%B'), day=self.date.strftime('%d'), tags=', '.join('<a href="/tags/{tag}">{tag}</a>'.format(tag=tag) for tag in self.tags), permalink=self.permalink, excerpt=self.excerpt, content=self.content, rss_rel='home')
+        pretty_date_html = strftimeML(self.date, getTimeFormatML("date", lang).replace("%B", '<a href="' + os.path.dirname(self.permalink) + '/">%B</a>').replace("%Y", '<a href="' + os.path.dirname(os.path.dirname(self.permalink)[:-1]) + '/">%Y</a>'), lang)
+        self.html = format(template, site_title=config["title"], title=self.title, date=self.date.strftime('%Y-%m-%d'), pretty_date_html=pretty_date_html,
+            tags=', '.join('<a href="/tags/{tag}">{tag}</a>'.format(tag=tag) for tag in self.tags), permalink=self.permalink, excerpt=self.excerpt, content=self.content, rss_rel='home')
         # Load MathJax for post with math tag.
         if is_math:
             self.html = self.html.replace('</head>', '''
@@ -286,8 +304,9 @@ class MonthlyArchive(object):
         if next_archive:
             next_archive_title = '>'
             next_archive_url = next_archive.permalink
+        archive_title_html = strftimeML(self.month, getTimeFormatML("month", lang).replace("%Y", '<a href="' + os.path.dirname(self.permalink[:-1]) + '/">%Y</a>'), lang)
         header = format(header_template, site_title=config["title"], archive_title=self.month.strftime('%B, %Y'), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
-                        next_archive_title=next_archive_title, next_archive_url=next_archive_url, month=self.month.strftime('%B'), year=self.month.strftime('%Y'), yearly_archive_url=os.path.dirname(self.permalink[:-1]) + '/')
+                        next_archive_title=next_archive_title, next_archive_url=next_archive_url, archive_title_html=archive_title_html)
         post_template = posts_match.group(1)
         post_list = []
         for post in self.posts:
@@ -347,8 +366,8 @@ class YearlyArchive(object):
             for post in monthly_archive.posts:
                 post_list.append(format(post_template, title=post.title, date=post.date.strftime(
                     '%Y-%m-%d'), pretty_date=post.pretty_date, permalink=post.permalink, excerpt=post.excerpt))
-            monthly_archive_list.append(format(monthly_archive_header, monthly_archive_title=monthly_archive.month.strftime(
-                '%B'), monthly_archive_url=monthly_archive.permalink) + ''.join(post_list) + monthly_archive_footer)
+            monthly_archive_list.append(format(monthly_archive_header, monthly_archive_title=strftimeML(monthly_archive.month, '%B', lang),
+                monthly_archive_url=monthly_archive.permalink) + ''.join(post_list) + monthly_archive_footer)
         index = header + ''.join(monthly_archive_list) + \
             template[monthly_archives_match.end():]
         return index
@@ -516,6 +535,8 @@ def main():
                     continue
                 key, value = line.split(':', 1)
                 config[key.strip()] = value.strip()
+        global lang
+        lang = config["default_lang"]
         logger.info('Site configure: %s', config)
 
     read_config()
@@ -710,8 +731,8 @@ def main():
             for post in reversed(monthly_archive.posts):
                 post_list.append(format(post_template, title=post.title, date=post.date.strftime(
                     '%Y-%m-%d'), pretty_date=post.pretty_date, permalink=post.permalink, excerpt=post.excerpt))
-            monthly_archive_list.append(format(monthly_archive_header, monthly_archive_title=monthly_archive.month.strftime(
-                '%B, %Y'), monthly_archive_url=monthly_archive.permalink) + ''.join(post_list) + monthly_archive_footer)
+            monthly_archive_list.append(format(monthly_archive_header, monthly_archive_title=strftimeML(monthly_archive.month, "month", lang),
+                monthly_archive_url=monthly_archive.permalink) + ''.join(post_list) + monthly_archive_footer)
         index = header + ''.join(monthly_archive_list) + \
             template[monthly_archives_match.end():]
         output_dir = os.path.join(site_dir, 'archive')

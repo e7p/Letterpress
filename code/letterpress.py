@@ -59,7 +59,10 @@ _template_re = re.compile(r'{{([^{}]+)}}')
 
 def format(template, **kwargs):
     # Add common replacements to all templates.
-    kwargs['common_head'] = common_head
+    # Parse the head template also, because it contains parameters
+    if 'rss_rel' not in kwargs:
+        kwargs['rss_rel'] = 'alternate'
+    kwargs['common_head'] = _template_re.sub(lambda m: kwargs[m.group(1)], common_head)
     kwargs['common_header'] = common_header
     return _template_re.sub(lambda m: kwargs[m.group(1)], template)
 
@@ -128,7 +131,7 @@ class Post(object):
         # Process <code lang="programming-lang"></code> blocks or spans.
         self.content = self._format_code_lang(self.content)
         self.html = format(template, site_title=config["title"], title=self.title, date=self.date.strftime('%Y-%m-%d'), monthly_archive_url=os.path.dirname(self.permalink) + '/', year=self.date.strftime('%Y'), month=self.date.strftime(
-            '%B'), day=self.date.strftime('%d'), tags=', '.join('<a href="/tags/{tag}">{tag}</a>'.format(tag=tag) for tag in self.tags), permalink=self.permalink, excerpt=self.excerpt, content=self.content)
+            '%B'), day=self.date.strftime('%d'), tags=', '.join('<a href="/tags/{tag}">{tag}</a>'.format(tag=tag) for tag in self.tags), permalink=self.permalink, excerpt=self.excerpt, content=self.content, rss_rel='home')
         # Load MathJax for post with math tag.
         if is_math:
             self.html = self.html.replace('</head>', '''

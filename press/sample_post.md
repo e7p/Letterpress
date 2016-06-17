@@ -1,5 +1,5 @@
 title: Letterpress
-date: 01/31/2013
+date: 2013-01-31
 excerpt: Letterpress is a minimal, Markdown based blogging system written in Python.
 tags: math, web
 lang: English

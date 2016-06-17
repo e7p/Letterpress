@@ -756,6 +756,15 @@ def main():
         with codecs.open(output_file_path, 'w', 'utf-8') as output_file:
             output_file.write(page)
 
+    def create_imprint_page():
+        with codecs.open(os.path.join(templates_dir, "imprint.html"), 'r', 'utf-8') as f:
+            template = f.read()
+        head = format(common_head, rss_rel='alternate', site_description=config['description'])
+        page = format(template, site_title=html.escape(config["title"]), common_head=head)
+        output_file_path = os.path.join(site_dir, 'imprint.html')
+        with codecs.open(output_file_path, 'w', 'utf-8') as output_file:
+            output_file.write(page)
+
     def create_rss_feed(posts):
         with codecs.open(os.path.join(templates_dir, "feed.xml"), 'r', 'utf-8') as f:
             template = f.read()
@@ -824,6 +833,7 @@ def main():
         create_yearly_archives(monthly_archives)
         create_complete_archive(monthly_archives)
         create_404_page()
+        create_imprint_page()
         create_rss_feed(posts)
 
     build_site()

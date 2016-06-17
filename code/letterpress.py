@@ -299,11 +299,15 @@ class MonthlyArchive(object):
         if prev_archive:
             prev_archive_title = '<'
             prev_archive_url = prev_archive.permalink
+        else:
+            header_template = ''.join([x for x in header_template.splitlines(True) if '{{prev_archive' not in x])
         next_archive_title = ''
         next_archive_url = ''
         if next_archive:
             next_archive_title = '>'
             next_archive_url = next_archive.permalink
+        else:
+            header_template = ''.join([x for x in header_template.splitlines(True) if '{{next_archive' not in x])
         archive_title_html = strftimeML(self.month, getTimeFormatML("month", lang).replace("%Y", '<a href="' + os.path.dirname(self.permalink[:-1]) + '/">%Y</a>'), lang)
         head = format(common_head, rss_rel='alternate', site_description=config['description'])
         header = format(header_template, site_title=config["title"], common_head=head, archive_title=strftimeML(self.month, "month", lang), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
@@ -349,11 +353,15 @@ class YearlyArchive(object):
         if prev_archive:
             prev_archive_title = '<'
             prev_archive_url = prev_archive.permalink
+        else:
+            header_template = ''.join([x for x in header_template.splitlines(True) if '{{prev_archive' not in x])
         next_archive_title = ''
         next_archive_url = ''
         if next_archive:
             next_archive_title = '>'
             next_archive_url = next_archive.permalink
+        else:
+            header_template = ''.join([x for x in header_template.splitlines(True) if '{{next_archive' not in x])
         head = format(common_head, rss_rel='alternate', site_description=config['description'])
         header = format(header_template, site_title=config["title"], common_head=head, archive_title=self.year.strftime(
             '%Y'), prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url, next_archive_title=next_archive_title, next_archive_url=next_archive_url)
@@ -412,11 +420,15 @@ class TimelineArchive(object):
         if prev_archive:
             prev_archive_title = '<'
             prev_archive_url = prev_archive.permalink
+        else:
+            footer_template = ''.join([x for x in footer_template.splitlines(True) if '{{prev_archive' not in x])
         next_archive_title = ''
         next_archive_url = ''
         if next_archive:
             next_archive_title = '>'
             next_archive_url = next_archive.permalink
+        else:
+            footer_template = ''.join([x for x in footer_template.splitlines(True) if '{{next_archive' not in x])
         footer = format(footer_template, prev_archive_title=prev_archive_title, prev_archive_url=prev_archive_url,
                         next_archive_title=next_archive_title, next_archive_url=next_archive_url)
         post_template = posts_match.group(1)

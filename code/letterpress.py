@@ -813,7 +813,7 @@ def main():
             basename = os.path.basename(path)
             if os.path.splitext(basename)[1] == config['markdown_ext']:
                 # Post.
-                post = create_post(path)
+                post = create_post(os.path.realpath(path))
                 if post:
                     posts[post.file_path] = post
             elif basename == 'letterpress.config':

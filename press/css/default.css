@@ -250,6 +250,16 @@ article .content video{
   margin: auto;
   padding: 10px 0;
 }
+article .content img.right {
+  width: 50%;
+}
+@media screen and (min-width: 568px) {
+  article .content img.right {
+    width: 34%;
+    float:right;
+    margin: 0 auto 20px 10px;
+  }
+}
 article .content img.inline{
 	display: inline;
 }

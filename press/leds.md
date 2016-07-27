@@ -1,6 +1,6 @@
 title: Einfuhr von LEDs aus China
 date: 2016-01-11
-excerpt: Über den Zoll und dessen Kenntnisse bezüglich des Imports von beschränkten Gütern, also z.B. auch Leuchtdioden (LEDs) bzw. Produkte, die LEDs enthalten.
+excerpt: Über den Zoll und dessen Kenntnisse bezüglich des Imports von beschränkten Gütern, also z. B. auch Leuchtdioden (LEDs) bzw. Produkte, die LEDs enthalten.
 tags: zoll, recht, elektronik, china
 lang: de
 
@@ -54,11 +54,11 @@ Bundesnetzagentur mal darüber sehen sollte. Immerhin kostete mich dies keinen
 Cent — höchstens Steuergelder — aber wenn der Zoll dies so will, kann ich da ja
 auch nichts für. Die Zollbeamten im Zollamt machen schließlich auch nur ihren
 Job und können nichts dafür, wenn die Bestimmungen eben so sind, dass alles,
-was LEDs beinhaltet erstmal nicht durchgelassen werden darf.
+was LEDs beinhaltet erst mal nicht durchgelassen werden darf.
 
 Am 09.01.2016 bekam ich dann die erfreuliche Nachricht vom Zoll, dass meine
 Sendung erfolgreich bei der Bundesnetzagentur geprüft wurde, und es sich
-tatsächlich um Erlaubte Güter handelt, sodass ich mein Päckchen zu den üblichen
+tatsächlich um erlaubte Güter handelt, sodass ich mein Päckchen zu den üblichen
 Öffnungszeiten des Zollamtes innerhalb der nächsten 10 Tage abholen kann.
 Als Begründung dafür wurde nur mitgeteilt, dass es sich bei meiner Sendung
 nicht um ein nicht konformes Erzeugnis gemäß Anhang II der Richtlinie
@@ -154,7 +154,7 @@ E-Mail verfasste, in der ich unter anderem folgende Punkte nochmals aufgriff:
 * Ist es für den Zoll nicht einfacher zu beurteilen, ob der Sendung ein
   möglicherweise gefährlicheres Netzteil beiliegt, oder es sich nur um
   ungefährliche LED-Produkte ohne Stecker oder Lampensockel handelt?
-* Könnte eine Fachkundigkeit (z.B. abgeschlossenes Studium oder Lehre in dem
+* Könnte eine Fachkundigkeit (z. B. abgeschlossenes Studium oder Lehre in dem
   Bereich) nicht zur sofortigen Herausgabe der Waren beim Zoll führen?
 * Wird differenziert zwischen Privatpersonen und Unternehmen, wenn Ware beim
   Zoll landet?

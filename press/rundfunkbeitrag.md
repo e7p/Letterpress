@@ -12,8 +12,8 @@ unnötigerweise monatlich einen gewissen Betrag an den Beitragsservice zahlen.
 
 Zunächst aber die Frage, warum der Wuppertaler Hackerspace überhaupt den
 Rundfunkbeitrag zahlen musste. Es fing Mitte Februar 2015 an, als der Vorstand
-Post vom Beitragsservice bekam, welcher /dev/tal e.V. vorsorglich selbst für
-den Rundfunkbeitrag angemeldet hat und nun das erste mal Geld von uns wollte.
+Post vom Beitragsservice bekam, welcher /dev/tal e. V. vorsorglich selbst für
+den Rundfunkbeitrag angemeldet hat und nun das erste Mal Geld von uns wollte.
 Vermutlich hat der Beitragsservice durch das Vereinsregister unseren Verein
 ausfindig gemacht, und da auch Vereine und Firmen grundsätzlich nicht von der
 neuen Rundfunkbeitragsregelung (ehemals GEZ) ausgenommen sind, müssten diese
@@ -26,7 +26,7 @@ so klingen, als würden sie auf keinen Fall auf einen Hackerspace passen. Man
 betrachte folgenden Gesetzesauszug (dabei gilt ein eingetragener Verein auch
 als Betriebsstätte):
 
-> §5 RBStV (5) Ein Rundfunkbeitrag nach Absatz 1 ist nicht zu entrichten für
+> § 5 RBStV (5) Ein Rundfunkbeitrag nach Absatz 1 ist nicht zu entrichten für
 > Betriebsstätten
 >
 > 1. die gottesdienstlichen Zwecken gewidmet sind,
@@ -42,18 +42,18 @@ Beitragsservice, der ungefähr folgende Nachricht beinhaltete:
 
 > Sehr geehrte Damen und Herren,
 > 
-> wir sind ein gemeinnnütziger Verein (/dev/tal e.V.) und haben in unseren
-> Räumlichkeiten keinen Arbeitsplatz eingerichtet. Nach §5 Abs. 5 RBStV Punkt 2
-> („Ein Rundfunkbeitrag nach Absatz 1 ist nicht zu entrichten für
+> wir sind ein gemeinnütziger Verein (/dev/tal e. V.) und haben in unseren
+> Räumlichkeiten keinen Arbeitsplatz eingerichtet. Nach § 5 Abs. 5 RBStV Punkt
+> 2 („Ein Rundfunkbeitrag nach Absatz 1 ist nicht zu entrichten für
 > Betriebsstätten […] in denen kein Arbeitsplatz eingerichtet ist […]“) müssten
 > wir also keinen Rundfunkbeitrag entrichten. Ist dies soweit korrekt? Kann die
 > Zahlungsaufforderung dadurch nun unwirksam gemacht werden bzw. der
 > Rundfunkbeitrag für unseren Verein abgemeldet werden?
 > 
-> Mit freundlichen Grüßen, […]
+> Mit freundlichen Grüßen […]
 
 Als auch im Sommer noch keine Antwort auf diese Mitteilung kam, versuchte ich
-es nach ca. 4-5 Monaten nochmal mit gleicher Mitteilung den Beitragsservice zu
+es nach ca. 4—5 Monaten nochmal mit gleicher Mitteilung den Beitragsservice zu
 kontaktieren. Während dieser Zeit haben wir unseren Beitrag ordnungsgemäß
 gezahlt, was aber an sich denke ich keine Rolle gespielt hätte.
 
@@ -88,7 +88,7 @@ dass ein Rundfunkbeitrag gezahlt werden muss.
 
 Jedenfalls kam nach einigen weiteren Tagen, am 11.11.2015 ein weiterer Brief,
 indem wir endgültig von unserer Beitragspflicht befreit wurden. Die Anmeldung
-wird nun Storniert und das bisher überwiesene Guthaben wird „in Kürze“ unserem
+wird nun storniert und das bisher überwiesene Guthaben wird „in Kürze“ unserem
 Verein erstattet werden.
 
 Ich hoffe, dass durch diese Erklärung einigen (auch kleineren) Hackerspaces und

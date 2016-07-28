@@ -36,11 +36,11 @@ Des Weiteren habe ich noch folgende Dinge für den Bau benötigt:
 * 3 mm MDF „Hartpappe“ ca. 100x50 cm
 * Schwarze Wandfarbe, es geht auch Lack o. Ä.
 * durchsichtigen Bootslack, um die Farbe zu konservieren und das ganze ein wenig Wetterfest zu machen
-* 4 Winkel 4 cm lang, passend (oder aufgebohrt) für M5 Schrauben
-* 4 Schrauben M5, 30 mm lang
-* 4 Muttern M5
-* 4 Unterlegscheiben für M5
-* 4 Flügelmuttern M5
+* 4 Winkel 4 cm lang, passend (oder aufgebohrt) für M6 Schrauben
+* 4 Schrauben M6, 30 mm lang
+* 4 Muttern M6
+* 4 Unterlegscheiben für M6
+* 4 Flügelmuttern M6
 * Blindnieten
 * Fugensilikon oder farbiger Heißkleber, je nachdem was leichter verfügbar ist
 * Endstufe: Class D Verstärkerplatine mit TDA 7492 (ca. 10 Euro bei [eBay](http://www.ebay.de/itm/162006712978))
@@ -106,7 +106,7 @@ Beim Einkleben sollte darauf geachtet werden, dass die Fugen alle möglichst dic
 
 Was noch gemacht werden muss, bevor das Gehäuse seine endgültige Form annimmt, ist, Winkel an den vier Ecken der Kiste zu befestigen. Das kann leicht mit Blindnieten gemacht werden, die in vorgebohrte Löcher der Plastikecken eingeschlagen werden (Danke an Yago für die Tipps dazu). Diese Methode hält erstaunlich gut, obwohl der Winkel letztendlich nur an der Millimeterdünnen Innenschicht des Kastens hält. Die Einbautiefe des Winkels sollte sinnvollerweise so ausgesucht werden, sodass mitsamt der Höhe einer Mutter, der Frontplatte und dem Lautsprecher-Schutzgitter genug Platz bleibt, um weiterhin eine Getränkekiste auf den Lautsprecher stapeln zu können.
 <img alt="Fertiges Gehäuse" src="/assets/bierbox/innen.jpg" class="right" />
-Dieses Bild verdeutlicht die Positionen ein wenig und zeigt auch wie der Winkel am Ende mit montierter Schraube aussieht. In die Frontplatte müssen an den entsprechenden Stellen noch Löcher passend für M5 Schrauben gebohrt werden.
+Dieses Bild verdeutlicht die Positionen ein wenig und zeigt auch wie der Winkel am Ende mit montierter Schraube aussieht. In die Frontplatte müssen an den entsprechenden Stellen noch Löcher passend für M6 Schrauben gebohrt werden.
 Im Bild zu sehen sind weiterhin bereits die Bleigelakkus, die für einen Platzierungstest entsprechend positioniert wurden.
 Daher geht es im nächsten Abschnitt auch passenderweise direkt um die Verkabelung und die integrierte Elektrik.
 

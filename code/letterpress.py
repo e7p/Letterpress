@@ -123,13 +123,12 @@ class Post(object):
         self.excerpt = html.escape(self.excerpt)
         self.tags = []
         is_math = False
-        if config.get('math_active', 'True') == 'True':
-            for tag_name in meta_data.get('tags', '').split(','):
-                tag_name = tag_name.strip()
-                if tag_name:
-                    self.tags.append(tag_name)
-                    if tag_name.lower() == 'math':
-                        is_math = True
+        for tag_name in meta_data.get('tags', '').split(','):
+            tag_name = tag_name.strip()
+            if tag_name:
+                self.tags.append(tag_name)
+                if tag_name.lower() == 'math' and config.get('math_active', 'True') == 'True':
+                    is_math = True
         self.lang = meta_data.get('lang')
         if self.lang == 'Chinese' or self.lang == '中文':
             template_file_name = 'post_zh.html'
